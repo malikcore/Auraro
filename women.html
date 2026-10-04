@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AURELLE | Women's Collection</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="men.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #f8f5ef;
+            color: #171717;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: #171717;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            padding: 9px 10px;
+        }
+
+        /* Navbar */
+        .main-navbar {
+            background: #fdfbf7;
+            border-bottom: 1px solid #e5dfd5;
+            padding: 18px 0;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            letter-spacing: 7px;
+            color: #171717 !important;
+            font-weight: 500;
+        }
+
+        .brand-subtitle {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-top: -5px;
+            color: #777;
+        }
+
+        .navbar-nav .nav-link {
+            color: #222 !important;
+            font-size: 14px;
+            margin: 0 9px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #a17a3d !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: #a17a3d;
+            left: 50%;
+            bottom: 2px;
+            transform: translateX(-50%);
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .nav-icons a {
+            color: #171717;
+            margin-left: 17px;
+            font-size: 19px;
+            transition: 0.3s;
+        }
+
+        .nav-icons a:hover {
+            color: #a17a3d;
+        }
+
+        /* Page Header */
+        .collection-header {
+            text-align: center;
+            padding: 70px 20px 45px;
+            background: #f8f5ef;
+        }
+
+        .collection-label {
+            color: #a17a3d;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .collection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .collection-description {
+            color: #777;
+            font-size: 14px;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        /* Products */
+        .categories {
+            width: 90%;
+            max-width: 1250px;
+            margin: 0 auto 80px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px 25px;
+        }
+
+        .category {
+            background: #fdfbf7;
+            border: 1px solid #e5dfd5;
+            padding-bottom: 25px;
+            transition: 0.35s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(23, 23, 23, 0.08);
+        }
+
+        .product-image-link {
+            display: block;
+            overflow: hidden;
+            background: #eee9e0;
+        }
+
+        .category img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .category:hover img {
+            transform: scale(1.04);
+        }
+
+        .product-info {
+            padding: 22px 22px 0;
+        }
+
+        .product-number {
+            color: #a17a3d;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+
+        .product-name {
+            color: #171717;
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .product-details {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+        }
+
+        .product-details li {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .product-details strong {
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Add Cart Button */
+        .button-container {
+            padding: 0 22px;
+        }
+
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 13px 20px;
+            background: #171717;
+            color: #fff;
+            border: 1px solid #171717;
+            text-decoration: none;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #a17a3d;
+            border-color: #a17a3d;
+            color: #fff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #171717;
+            color: #ddd;
+            padding: 55px 0 25px;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 30px;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-title {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #c29a5b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+
+            .brand-logo {
+                font-size: 25px;
+            }
+
+            .nav-icons {
+                display: none;
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+                width: 92%;
+            }
+
+            .collection-title {
+                font-size: 40px;
+            }
+
+            .category img {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .announcement-bar {
+                font-size: 10px;
+                letter-spacing: 1px;
+            }
+
+            .collection-header {
+                padding: 50px 20px 35px;
+            }
+
+            .collection-title {
+                font-size: 34px;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+                width: 90%;
+                gap: 25px;
+            }
+
+            .category img {
+                height: 430px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        Free Shipping on Orders Over $75 | 30-Day Hassle-Free Returns
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar">
+        <div class="container">
+
+            <!-- AURELLE Logo -->
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-logo">AURELLE</span>
+                <span class="brand-subtitle">FASHION / LIFESTYLE / YOU</span>
+            </a>
+
+            <!-- Mobile Menu -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <!-- Main Navigation -->
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Shop</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Women</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="men.html">Men</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Collections</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact_form.html">Support</a>
+                    </li>
+
+                </ul>
+
+
+                <!-- Right Icons -->
+                <div class="nav-icons">
+
+                    <a href="#" title="Search">
+                        <i class="bi bi-search"></i>
+                    </a>
+
+                    <a href="account.html" title="Account">
+                        <i class="bi bi-person"></i>
+                    </a>
+
+                    <a href="#" title="Wishlist">
+                        <i class="bi bi-heart"></i>
+                    </a>
+
+                    <a href="cart.html" title="Cart">
+                        <i class="bi bi-bag"></i>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Collection Header -->
+    <header class="collection-header">
+
+        <div class="collection-label">
+            AURELLE / WOMEN
+        </div>
+
+        <h1 class="collection-title">
+            Women's Collection
+        </h1>
+
+        <p class="collection-description">
+            Discover timeless silhouettes and contemporary essentials,
+            thoughtfully selected for the modern woman.
+        </p>
+
+    </header>
+
+
+    <!-- Products -->
+    <main>
+
+        <section class="categories">
+
+
+            <!-- Product 1 -->
+            <div class="category">
+
+                <a href="women image 1.html"
+                   class="product-image-link">
+
+                    <img
+                        src="https://cibonline.lk/wp-content/uploads/2024/09/7-7-450x575.jpg"
+                        alt="Women's Blouse">
+
+                </a>
+
+                <div class="product-info">
+
+                    <div class="product-number">
+                        Women's Edit 01
+                    </div>
+
+                    <h2 class="product-name">
+                        Blouse
+                    </h2>
+
+                    <div class="product-price">
+                        $20.00
+                    </div>
+
+                    <ul class="product-details">
+
+                        <li>
+                            <strong>Size:</strong>
+                            S, M, L, XL
+                        </li>
+
+                        <li>
+                            <strong>Colour:</strong>
+                            Red, Black, Blue
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="button-container">
+
+                    <a href="cart.html" class="add-to-cart">
+                        Add to Cart
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 2 -->
+            <div class="category">
+
+                <a href="women image 2.html"
+                   class="product-image-link">
+
+                    <img
+                        src="https://www.wyselondon.com/cdn/shop/files/CatalogueImages-7_14dccb80-6190-4e5f-adeb-8014239b9db2.jpg?v=1725876760&width=942"
+                        alt="Women's Tank Tops">
+
+                </a>
+
+                <div class="product-info">
+
+                    <div class="product-number">
+                        Women's Edit 02
+                    </div>
+
+                    <h2 class="product-name">
+                        Tank Tops
+                    </h2>
+
+                    <div class="product-price">
+                        $70.00
+                    </div>
+
+                    <ul class="product-details">
+
+                        <li>
+                            <strong>Size:</strong>
+                            S, M, L, XL
+                        </li>
+
+                        <li>
+                            <strong>Colour:</strong>
+                            Green, Yellow, Red
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="button-container">
+
+                    <a href="cart.html" class="add-to-cart">
+                        Add to Cart
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 3 -->
+            <div class="category">
+
+                <a href="women image 3.html"
+                   class="product-image-link">
+
+                    <img
+                        src="https://i.pinimg.com/1200x/9d/75/f5/9d75f51176f70f23eb313b7e92415b13.jpg"
+                        alt="Women's Shalwar">
+
+                </a>
+
+                <div class="product-info">
+
+                    <div class="product-number">
+                        Women's Edit 03
+                    </div>
+
+                    <h2 class="product-name">
+                        Shalwar
+                    </h2>
+
+                    <div class="product-price">
+                        $20.00
+                    </div>
+
+                    <ul class="product-details">
+
+                        <li>
+                            <strong>Size:</strong>
+                            S, M, L, XL
+                        </li>
+
+                        <li>
+                            <strong>Colour:</strong>
+                            Red, Black, Blue
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="button-container">
+
+                    <a href="cart.html" class="add-to-cart">
+                        Add to Cart
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 4 -->
+            <div class="category">
+
+                <a href="women image 4.html"
+                   class="product-image-link">
+
+                    <img
+                        src="https://www.shoplibas.com/cdn/shop/files/48694A.Main.jpg?v=1725094288"
+                        alt="Women's Party Dresses">
+
+                </a>
+
+                <div class="product-info">
+
+                    <div class="product-number">
+                        Women's Edit 04
+                    </div>
+
+                    <h2 class="product-name">
+                        Party Dresses
+                    </h2>
+
+                    <div class="product-price">
+                        $250.00
+                    </div>
+
+                    <ul class="product-details">
+
+                        <li>
+                            <strong>Size:</strong>
+                            S, M, L, XL
+                        </li>
+
+                        <li>
+                            <strong>Colour:</strong>
+                            Blue, Grey, Red
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="button-container">
+
+                    <a href="cart.html" class="add-to-cart">
+                        Add to Cart
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 5 -->
+            <div class="category">
+
+                <a href="women image 5.html"
+                   class="product-image-link">
+
+                    <img
+                        src="https://assets.ajio.com/medias/sys_master/root/20231116/9aXk/6555dd3bafa4cf41f58cff96/-473Wx593H-466805488-red-MODEL.jpg"
+                        alt="Women's Sarees">
+
+                </a>
+
+                <div class="product-info">
+
+                    <div class="product-number">
+                        Women's Edit 05
+                    </div>
+
+                    <h2 class="product-name">
+                        Sarees
+                    </h2>
+
+                    <div class="product-price">
+                        $150.00
+                    </div>
+
+                    <ul class="product-details">
+
+                        <li>
+                            <strong>Size:</strong>
+                            S, M, L, XL
+                        </li>
+
+                        <li>
+                            <strong>Colour:</strong>
+                            Green, Blue, Yellow
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="button-container">
+
+                    <a href="cart.html" class="add-to-cart">
+                        Add to Cart
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+                    AURELLE
+                </div>
+
+                <p class="footer-text">
+                    Modern fashion designed for confident individuals.
+                    Discover timeless styles, contemporary collections,
+                    and pieces made to express who you are.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <div class="footer-title">
+                    SHOP
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="categories.html">
+                        Categories
+                    </a>
+
+                    <a href="index.html">
+                        New Arrivals
+                    </a>
+
+                    <a href="women.html">
+                        Women's
+                    </a>
+
+                    <a href="men.html">
+                        Men's
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <div class="footer-title">
+                    HELP
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="contact_form.html">
+                        Support
+                    </a>
+
+                    <a href="account.html">
+                        My Account
+                    </a>
+
+                    <a href="cart.html">
+                        Cart
+                    </a>
+
+                    <a href="#">
+                        Returns
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-4">
+
+                <div class="footer-title">
+                    FOLLOW US
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        Pinterest
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            &copy; 2026 AURELLE. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

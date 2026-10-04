@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AURELLE | My Account</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f8f5ef;
+            color: #171717;
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           ANNOUNCEMENT BAR
+        ========================= */
+
+        .announcement-bar {
+            background: #171717;
+            color: white;
+            text-align: center;
+            padding: 9px;
+            font-size: 12px;
+            letter-spacing: .5px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .main-navbar {
+            background: #fdfbf7;
+            border-bottom: 1px solid #e5dfd5;
+            padding: 17px 0;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 31px;
+            letter-spacing: 7px;
+            color: #171717;
+        }
+
+        .brand-subtitle {
+            display: block;
+            text-align: center;
+            font-size: 8px;
+            letter-spacing: 3px;
+            color: #777;
+            margin-top: -4px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #222 !important;
+            font-size: 14px;
+            margin: 0 9px;
+            transition: .3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #a17a3d !important;
+        }
+
+        .nav-icons a {
+            color: #171717;
+            font-size: 19px;
+            margin-left: 17px;
+            transition: .3s;
+        }
+
+        .nav-icons a:hover {
+            color: #a17a3d;
+        }
+
+
+        /* =========================
+           ACCOUNT HERO
+        ========================= */
+
+        .account-hero {
+            background: #e9dfd0;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .account-label {
+            color: #a17a3d;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .account-title {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .account-subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           ACCOUNT SECTION
+        ========================= */
+
+        .account-section {
+            padding: 65px 0 90px;
+        }
+
+
+        /* =========================
+           PROFILE CARD
+        ========================= */
+
+        .profile-card {
+            background: #ffffff;
+            padding: 35px;
+            border: 1px solid #e4ded5;
+            height: 100%;
+        }
+
+        .profile-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #171717;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+        .profile-title {
+            font-size: 26px;
+            margin-bottom: 25px;
+        }
+
+        .profile-info {
+            margin-bottom: 18px;
+        }
+
+        .profile-label {
+            display: block;
+            color: #888;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .profile-value {
+            font-size: 15px;
+            color: #222;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .primary-btn {
+            display: inline-block;
+            background: #171717;
+            color: white;
+
+            padding: 13px 25px;
+
+            font-size: 11px;
+            letter-spacing: 1.5px;
+
+            border: none;
+
+            transition: .3s;
+        }
+
+        .primary-btn:hover {
+            background: #a17a3d;
+            color: white;
+        }
+
+        .logout-btn {
+            display: inline-block;
+
+            border: 1px solid #b33a3a;
+            color: #b33a3a;
+
+            padding: 12px 25px;
+
+            font-size: 11px;
+            letter-spacing: 1.5px;
+
+            margin-left: 8px;
+
+            transition: .3s;
+        }
+
+        .logout-btn:hover {
+            background: #b33a3a;
+            color: white;
+        }
+
+
+        /* =========================
+           QUICK LINKS
+        ========================= */
+
+        .quick-card {
+            background: #ffffff;
+            border: 1px solid #e4ded5;
+            padding: 27px;
+
+            display: flex;
+            align-items: center;
+
+            margin-bottom: 15px;
+
+            transition: .3s;
+        }
+
+        .quick-card:hover {
+            transform: translateX(5px);
+            border-color: #a17a3d;
+        }
+
+        .quick-icon {
+            width: 48px;
+            height: 48px;
+
+            background: #f1eadf;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 18px;
+
+            font-size: 20px;
+            color: #a17a3d;
+        }
+
+        .quick-content h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            margin: 0 0 4px;
+        }
+
+        .quick-content p {
+            margin: 0;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .quick-arrow {
+            margin-left: auto;
+            color: #999;
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #171717;
+            color: #ddd;
+            padding: 55px 0 25px;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 30px;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-title {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #c29a5b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width: 991px) {
+
+            .nav-icons {
+                display: none;
+            }
+
+            .account-title {
+                font-size: 40px;
+            }
+
+            .profile-card {
+                margin-bottom: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     ANNOUNCEMENT
+========================= -->
+
+<div class="announcement-bar">
+
+    Free Shipping on Orders Over $75
+    &nbsp; | &nbsp;
+    30-Day Hassle-Free Returns
+
+</div>
+
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar navbar-expand-lg main-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+
+            <span class="brand-logo">
+                AURELLE
+            </span>
+
+            <span class="brand-subtitle">
+                FASHION / LIFESTYLE / YOU
+            </span>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="accessories.html">
+                        Accessories
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">
+                        Cart
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="account.html">
+                        Account
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact_form.html">
+                        Support
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="nav-icons">
+
+                <a href="#">
+                    <i class="bi bi-search"></i>
+                </a>
+
+                <a href="account.html">
+                    <i class="bi bi-person"></i>
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-heart"></i>
+                </a>
+
+                <a href="cart.html">
+                    <i class="bi bi-bag"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     ACCOUNT HERO
+========================= -->
+
+<section class="account-hero">
+
+    <div class="account-label">
+        AURELLE
+    </div>
+
+    <h1 class="account-title">
+        My Account
+    </h1>
+
+    <p class="account-subtitle">
+        Manage your profile, orders and preferences.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     ACCOUNT CONTENT
+========================= -->
+
+<section class="account-section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <!-- =====================
+                 PROFILE
+            ====================== -->
+
+            <div class="col-lg-5">
+
+                <div class="profile-card">
+
+                    <div class="profile-icon">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+
+                    <h2 class="profile-title">
+                        Welcome Back
+                    </h2>
+
+
+                    <div class="profile-info">
+
+                        <span class="profile-label">
+                            Username
+                        </span>
+
+                        <span class="profile-value">
+                            A.Abdul Malik
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <span class="profile-label">
+                            Email Address
+                        </span>
+
+                        <span class="profile-value">
+                            Abdulmalik@gmail.com
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-4">
+
+                        <a href="cart.html"
+                           class="primary-btn">
+
+                            VIEW ORDERS
+
+                        </a>
+
+
+                        <a href="logout.php"
+                           class="logout-btn">
+
+                            LOGOUT
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 QUICK LINKS
+            ====================== -->
+
+            <div class="col-lg-7">
+
+
+                <a href="cart.html"
+                   class="quick-card">
+
+                    <div class="quick-icon">
+
+                        <i class="bi bi-bag-check"></i>
+
+                    </div>
+
+                    <div class="quick-content">
+
+                        <h3>
+                            My Orders
+                        </h3>
+
+                        <p>
+                            View your recent orders and purchase history.
+                        </p>
+
+                    </div>
+
+                    <div class="quick-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+
+                <a href="cart.html"
+                   class="quick-card">
+
+                    <div class="quick-icon">
+
+                        <i class="bi bi-cart3"></i>
+
+                    </div>
+
+                    <div class="quick-content">
+
+                        <h3>
+                            Shopping Cart
+                        </h3>
+
+                        <p>
+                            Review the items you've selected.
+                        </p>
+
+                    </div>
+
+                    <div class="quick-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+
+                <a href="#"
+                   class="quick-card">
+
+                    <div class="quick-icon">
+
+                        <i class="bi bi-heart"></i>
+
+                    </div>
+
+                    <div class="quick-content">
+
+                        <h3>
+                            Wishlist
+                        </h3>
+
+                        <p>
+                            Keep track of the styles you love.
+                        </p>
+
+                    </div>
+
+                    <div class="quick-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+
+                <a href="contact_form.html"
+                   class="quick-card">
+
+                    <div class="quick-icon">
+
+                        <i class="bi bi-headset"></i>
+
+                    </div>
+
+                    <div class="quick-content">
+
+                        <h3>
+                            Customer Support
+                        </h3>
+
+                        <p>
+                            Need help? Our support team is here for you.
+                        </p>
+
+                    </div>
+
+                    <div class="quick-arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+                    AURELLE
+                </div>
+
+                <p class="footer-text">
+                    Modern fashion designed for confident individuals.
+                    Discover timeless styles, contemporary collections,
+                    and pieces made to express who you are.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <div class="footer-title">
+                    SHOP
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="categories.html">
+                        Categories
+                    </a>
+
+                    <a href="index.html">
+                        New Arrivals
+                    </a>
+
+                    <a href="women.html">
+                        Women's
+                    </a>
+
+                    <a href="men.html">
+                        Men's
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <div class="footer-title">
+                    HELP
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="contact_form.html">
+                        Support
+                    </a>
+
+                    <a href="account.html">
+                        My Account
+                    </a>
+
+                    <a href="cart.html">
+                        Cart
+                    </a>
+
+                    <a href="#">
+                        Returns
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-4">
+
+                <div class="footer-title">
+                    FOLLOW US
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        Pinterest
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            &copy; 2026 AURELLE. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+
+</html>

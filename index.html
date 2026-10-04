@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AURELLE | Modern Fashion</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            color: #171717;
+            background: #f8f5ef;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           TOP ANNOUNCEMENT BAR
+        ========================= */
+
+        .announcement-bar {
+            background: #171717;
+            color: #ffffff;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .main-navbar {
+            background: #fdfbf7;
+            border-bottom: 1px solid #e5dfd5;
+            padding: 18px 0;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            letter-spacing: 7px;
+            color: #171717 !important;
+            font-weight: 500;
+        }
+
+        .brand-subtitle {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-top: -5px;
+            color: #777;
+        }
+
+        .navbar-nav .nav-link {
+            color: #222 !important;
+            font-size: 14px;
+            margin: 0 9px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #a17a3d !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: #a17a3d;
+            left: 50%;
+            bottom: 2px;
+            transform: translateX(-50%);
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .nav-icons a {
+            color: #171717;
+            margin-left: 17px;
+            font-size: 19px;
+            transition: 0.3s;
+        }
+
+        .nav-icons a:hover {
+            color: #a17a3d;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero-section {
+            min-height: 520px;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(242, 231, 215, 0.96) 0%,
+                    rgba(242, 231, 215, 0.80) 40%,
+                    rgba(242, 231, 215, 0.10) 75%
+                ),
+                url("https://palmonas.com/cdn/shop/files/New_arrival_web_banner_1_1.webp?crop=center&height=794&v=1749461813&width=2000");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding-left: 7%;
+        }
+
+        .hero-small-title {
+            color: #a17a3d;
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-size: clamp(45px, 6vw, 78px);
+            line-height: 1.05;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #181818;
+        }
+
+        .hero-description {
+            font-size: 17px;
+            color: #555;
+            line-height: 1.7;
+            max-width: 430px;
+            margin-bottom: 30px;
+        }
+
+        .gold-line {
+            width: 55px;
+            height: 2px;
+            background: #a17a3d;
+            display: inline-block;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        .shop-btn {
+            background: #171717;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            letter-spacing: 2px;
+            font-size: 12px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .shop-btn:hover {
+            background: #a17a3d;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           SECTION TITLES
+        ========================= */
+
+        .section-heading {
+            text-align: center;
+            padding-top: 75px;
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            color: #a17a3d;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           COLLECTION CARDS
+        ========================= */
+
+        .collection-card {
+            height: 310px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.70),
+                rgba(0,0,0,0.05)
+            );
+
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+        }
+
+        .collection-content {
+            color: white;
+        }
+
+        .collection-content h3 {
+            font-size: 25px;
+            margin-bottom: 4px;
+        }
+
+        .collection-content p {
+            margin: 0;
+            font-size: 13px;
+            color: #eee;
+        }
+
+        .collection-arrow {
+            margin-top: 12px;
+            display: inline-block;
+            color: white;
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products-section {
+            background: #fdfbf7;
+            margin-top: 75px;
+            padding-bottom: 80px;
+        }
+
+        .product-card {
+            background: white;
+            border: none;
+            border-radius: 0;
+            overflow: hidden;
+            height: 100%;
+            transition: 0.35s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .product-image-wrapper {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            background: #eee;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: #a17a3d;
+            color: white;
+            padding: 6px 10px;
+            font-size: 9px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .view-btn {
+            border: 1px solid #222;
+            color: #222;
+            background: transparent;
+            padding: 9px 20px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            background: #171717;
+            color: white;
+        }
+
+
+        /* =========================
+           PROMO SECTION
+        ========================= */
+
+        .promo-section {
+            background: #e9dfd0;
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        .promo-section h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .promo-section p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #171717;
+            color: #ddd;
+            padding: 55px 0 25px;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 30px;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-title {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #c29a5b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 991px) {
+
+            .brand-logo {
+                font-size: 25px;
+            }
+
+            .nav-icons {
+                display: none;
+            }
+
+            .hero-section {
+                min-height: 550px;
+                background-position: 65% center;
+            }
+
+            .hero-content {
+                padding: 30px;
+                background: rgba(248, 245, 239, 0.75);
+                margin: 20px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .collection-card {
+                margin-bottom: 20px;
+            }
+
+            .product-image-wrapper {
+                height: 300px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+    ANNOUNCEMENT BAR
+========================= -->
+
+<div class="announcement-bar">
+    Free Shipping on Orders Over $75 &nbsp; | &nbsp; 30-Day Hassle-Free Returns
+</div>
+
+
+
+<!-- =========================
+    NAVBAR
+========================= -->
+
+<nav class="navbar navbar-expand-lg main-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+
+            <span class="brand-logo">AURELLE</span>
+
+            <span class="brand-subtitle">
+                FASHION / LIFESTYLE / YOU
+            </span>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">
+                        Women
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">
+                        Men
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">
+                        Collections
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact_form.html">
+                        Support
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="nav-icons">
+
+                <a href="#" title="Search">
+                    <i class="bi bi-search"></i>
+                </a>
+
+                <a href="account.html" title="Account">
+                    <i class="bi bi-person"></i>
+                </a>
+
+                <a href="#" title="Wishlist">
+                    <i class="bi bi-heart"></i>
+                </a>
+
+                <a href="cart.html" title="Cart">
+                    <i class="bi bi-bag"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+    HERO
+========================= -->
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <div class="hero-small-title">
+            <span class="gold-line"></span>
+            AURELLE
+        </div>
+
+        <h1 class="hero-title">
+            Modern Fashion.<br>
+            Timeless Elegance.
+        </h1>
+
+        <p class="hero-description">
+            Discover sophisticated styles crafted for every occasion.
+            Express your personality through fashion that feels uniquely yours.
+        </p>
+
+        <a href="categories.html" class="shop-btn">
+            SHOP COLLECTION
+            &nbsp; →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+    COLLECTIONS
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Shop By Category
+            </div>
+
+            <h2 class="section-title">
+                Explore Our Collections
+            </h2>
+
+            <p class="section-description">
+                Find your perfect style for every side of you.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Women's -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="categories.html">
+
+                    <div class="collection-card">
+
+                        <img
+                            src="img/Korean Floral Mini Dress _ Light Yellow Cottagecore Fashion Model Editorial.jpg"
+                            alt="Women's Collection">
+
+                        <div class="collection-overlay">
+
+                            <div class="collection-content">
+
+                                <h3>
+                                    Women's Collection
+                                </h3>
+
+                                <p>
+                                    Grace in every detail
+                                </p>
+
+                                <span class="collection-arrow">
+                                    →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Men's -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="categories.html">
+
+                    <div class="collection-card">
+
+                        <img
+                            src="img/Men's outfit 《Casual Outfits 》.jpg"
+                            alt="Men's Collection">
+
+                        <div class="collection-overlay">
+
+                            <div class="collection-content">
+
+                                <h3>
+                                    Men's Collection
+                                </h3>
+
+                                <p>
+                                    Sharp looks. Everyday.
+                                </p>
+
+                                <span class="collection-arrow">
+                                    →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Formal -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="categories.html">
+
+                    <div class="collection-card">
+
+                        <img
+                            src="img/better with age.jpg"
+                            alt="Formal Wear">
+
+                        <div class="collection-overlay">
+
+                            <div class="collection-content">
+
+                                <h3>
+                                    Formal Wear
+                                </h3>
+
+                                <p>
+                                    Dress for bigger moments
+                                </p>
+
+                                <span class="collection-arrow">
+                                    →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Trending -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="categories.html">
+
+                    <div class="collection-card">
+
+                        <img
+                            src="img/Men's Accessories Essentials _ Everyday Luxury Style.jpg"
+                            alt="Trending Fashion">
+
+                        <div class="collection-overlay">
+
+                            <div class="collection-content">
+
+                                <h3>
+                                    Trending Now
+                                </h3>
+
+                                <p>
+                                    What's hot this season
+                                </p>
+
+                                <span class="collection-arrow">
+                                    →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+    PRODUCTS
+========================= -->
+
+<section class="products-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                New Arrivals
+            </div>
+
+            <h2 class="section-title">
+                Latest Picks Just for You
+            </h2>
+
+            <p class="section-description">
+                Fresh styles. Timeless pieces. Handpicked for you.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Product 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <span class="product-badge">
+                            NEW
+                        </span>
+
+                        <img
+                            src="img/Men's Plain Gray Suede Fleece Jacket And Coat, Autumn_Winter.jpg"
+                            class="product-image"
+                            alt="Casual Jacket">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-title">
+                            Casual Jacket
+                        </div>
+
+                        <div class="product-price">
+                            $85.00
+                        </div>
+
+                        <a href="product1.html" class="view-btn">
+                            VIEW DETAILS
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <span class="product-badge">
+                            NEW
+                        </span>
+
+                        <img
+                            src="img/Shiny elegant dress 🫶🤍✨.jpg"
+                            class="product-image"
+                            alt="Elegant Dress">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-title">
+                            Elegant Dress
+                        </div>
+
+                        <div class="product-price">
+                            $70.00
+                        </div>
+
+                        <a href="product2.html" class="view-btn">
+                            VIEW DETAILS
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <span class="product-badge">
+                            BESTSELLER
+                        </span>
+
+                        <img
+                            src="img/Manfinity Homme Men's Casual Commuter Striped Shirt Formal.jpg"
+                            class="product-image"
+                            alt="Formal Shirt">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-title">
+                            Formal Shirt
+                        </div>
+
+                        <div class="product-price">
+                            $35.00
+                        </div>
+
+                        <a href="product3.html" class="view-btn">
+                            VIEW DETAILS
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 4 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <span class="product-badge">
+                            NEW
+                        </span>
+
+                        <img
+                            src="img/Luxury Taupe Designer Handbag Collection.jpg"
+                            class="product-image"
+                            alt="Hand Bags">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-title">
+                            Hand Bags
+                        </div>
+
+                        <div class="product-price">
+                            $85.00
+                        </div>
+
+                        <a href="product4.html" class="view-btn">
+                            VIEW DETAILS
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 5 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <span class="product-badge">
+                            TRENDING
+                        </span>
+
+                        <img
+                            src="img/trendy top.jpg"
+                            class="product-image"
+                            alt="Fashion Tops">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-title">
+                            Fashion Tops
+                        </div>
+
+                        <div class="product-price">
+                            $100.00
+                        </div>
+
+                        <a href="product5.html" class="view-btn">
+                            VIEW DETAILS
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 6 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <span class="product-badge">
+                            NEW
+                        </span>
+
+                        <img
+                            src="img/Vintage Style Brown Pleated Trousers for Men _ Elegant High Waist Wool Pants.jpg"
+                            class="product-image"
+                            alt="Trousers">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-title">
+                            Classic Trousers
+                        </div>
+
+                        <div class="product-price">
+                            $55.00
+                        </div>
+
+                        <a href="product6.html" class="view-btn">
+                            VIEW DETAILS
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROMO
+========================= -->
+
+<section class="promo-section">
+
+    <div class="container">
+
+        <div class="section-label">
+            AURELLE
+        </div>
+
+        <h2>
+            Style That Speaks For You.
+        </h2>
+
+        <p>
+            Discover the latest collections and redefine your everyday style.
+        </p>
+
+        <a href="categories.html" class="shop-btn">
+            EXPLORE COLLECTION
+            &nbsp; →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+                    AURELLE
+                </div>
+
+                <p class="footer-text">
+                    Modern fashion designed for confident individuals.
+                    Discover timeless styles, contemporary collections,
+                    and pieces made to express who you are.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <div class="footer-title">
+                    SHOP
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="categories.html">
+                        Categories
+                    </a>
+
+                    <a href="categories.html">
+                        New Arrivals
+                    </a>
+
+                    <a href="categories.html">
+                        Women's
+                    </a>
+
+                    <a href="categories.html">
+                        Men's
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <div class="footer-title">
+                    HELP
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="contact_form.html">
+                        Support
+                    </a>
+
+                    <a href="account.html">
+                        My Account
+                    </a>
+
+                    <a href="cart.html">
+                        Cart
+                    </a>
+
+                    <a href="#">
+                        Returns
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-4">
+
+                <div class="footer-title">
+                    FOLLOW US
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        Pinterest
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            &copy; 2026 AURELLE. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

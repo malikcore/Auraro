@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AURELLE | Categories</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: #f8f5ef;
+            color: #171717;
+            font-family: "Inter", sans-serif;
+        }
+
+        /* =========================
+           Announcement Bar
+        ========================= */
+
+        .announcement-bar {
+            background: #171717;
+            color: #ffffff;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .main-navbar {
+            background: #fdfbf7;
+            border-bottom: 1px solid #e5dfd5;
+            padding: 18px 0;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            letter-spacing: 7px;
+            color: #171717 !important;
+            font-weight: 500;
+        }
+
+        .brand-subtitle {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-top: -5px;
+            color: #777;
+        }
+
+        .navbar-nav .nav-link {
+            color: #222 !important;
+            font-size: 14px;
+            margin: 0 9px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #a17a3d !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: #a17a3d;
+            left: 50%;
+            bottom: 2px;
+            transform: translateX(-50%);
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .nav-icons a {
+            color: #171717;
+            margin-left: 17px;
+            font-size: 19px;
+            transition: 0.3s;
+        }
+
+        .nav-icons a:hover {
+            color: #a17a3d;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
+        .category-hero {
+            padding: 85px 20px 55px;
+            text-align: center;
+        }
+
+        .small-title {
+            color: #a17a3d;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .category-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(42px, 6vw, 68px);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .category-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* =========================
+           Category Cards
+        ========================= */
+
+        .categories-section {
+            padding: 20px 0 100px;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            border: none;
+            border-radius: 0;
+            background: #ffffff;
+            height: 520px;
+            cursor: pointer;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Dark overlay */
+
+        .category-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.75),
+                rgba(0, 0, 0, 0.05) 65%
+            );
+        }
+
+        /* Card Content */
+
+        .category-content {
+            position: absolute;
+            z-index: 2;
+            bottom: 35px;
+            left: 35px;
+            right: 35px;
+            color: white;
+        }
+
+        .category-number {
+            font-size: 11px;
+            letter-spacing: 3px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .category-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 34px;
+            margin-bottom: 18px;
+        }
+
+        .shop-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+            padding-bottom: 6px;
+            transition: 0.3s ease;
+        }
+
+        .shop-link:hover {
+            color: #d5b27a;
+            border-color: #d5b27a;
+            gap: 15px;
+        }
+
+        /* =========================
+           Bottom Text
+        ========================= */
+
+        .category-bottom {
+            text-align: center;
+            margin-top: 75px;
+        }
+
+        .category-bottom h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .category-bottom p {
+            color: #777;
+            font-size: 14px;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #171717;
+            color: #ddd;
+            padding: 55px 0 25px;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 30px;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-title {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #c29a5b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+
+        @media (max-width: 991px) {
+
+            .nav-link {
+                margin-left: 0;
+                padding: 12px 0;
+            }
+
+            .category-card {
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .category-hero {
+                padding: 60px 20px 40px;
+            }
+
+            .category-card {
+                height: 480px;
+            }
+
+            .category-content h2 {
+                font-size: 30px;
+            }
+
+            .category-bottom {
+                margin-top: 50px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        Complimentary shipping on orders over $100
+    </div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar navbar-expand-lg main-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+
+            <span class="brand-logo">AURELLE</span>
+
+            <span class="brand-subtitle">
+                FASHION / LIFESTYLE / YOU
+            </span>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="women.html">
+                        Women
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="men.html">
+                        Men
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">
+                        Collections
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact_form.html">
+                        Support
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="nav-icons">
+
+                <a href="#" title="Search">
+                    <i class="bi bi-search"></i>
+                </a>
+
+                <a href="account.html" title="Account">
+                    <i class="bi bi-person"></i>
+                </a>
+
+                <a href="#" title="Wishlist">
+                    <i class="bi bi-heart"></i>
+                </a>
+
+                <a href="cart.html" title="Cart">
+                    <i class="bi bi-bag"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+
+    <!-- Hero -->
+    <section class="category-hero">
+
+        <div class="small-title">
+            The AURELLE Collection
+        </div>
+
+        <h1>Shop by Category</h1>
+
+        <p>
+            Discover thoughtfully curated collections designed to bring
+            confidence, elegance and effortless style into your wardrobe.
+        </p>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories-section">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <!-- Men's Clothing -->
+                <div class="col-lg-4 col-md-6">
+
+                    <div
+                        class="category-card"
+                        onclick="window.location.href='men.html'"
+                    >
+
+                        <img
+                            src="https://viamilano.ae/wp-content/uploads/2024/05/clothing-mens.webp"
+                            alt="Men's Clothing"
+                        >
+
+                        <div class="category-content">
+
+                            <div class="category-number">
+                                01 / COLLECTION
+                            </div>
+
+                            <h2>Men's Clothing</h2>
+
+                            <a
+                                href="men.html"
+                                class="shop-link"
+                                onclick="event.stopPropagation();"
+                            >
+                                Explore Collection
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Women's Clothing -->
+                <div class="col-lg-4 col-md-6">
+
+                    <div
+                        class="category-card"
+                        onclick="window.location.href='women.html'"
+                    >
+
+                        <img
+                            src="https://img.freepik.com/free-photo/cute-woman-bright-hat-purple-blouse-is-leaning-stand-with-dresses-posing-with-package-isolated-background_197531-17610.jpg"
+                            alt="Women's Clothing"
+                        >
+
+                        <div class="category-content">
+
+                            <div class="category-number">
+                                02 / COLLECTION
+                            </div>
+
+                            <h2>Women's Clothing</h2>
+
+                            <a
+                                href="women.html"
+                                class="shop-link"
+                                onclick="event.stopPropagation();"
+                            >
+                                Explore Collection
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Accessories -->
+                <div class="col-lg-4 col-md-6 mx-md-auto">
+
+                    <div
+                        class="category-card"
+                        onclick="window.location.href='accessories.html'"
+                    >
+
+                        <img
+                            src="https://cache.careers360.mobi/media/presets/860X430/article_images/2020/6/27/Know_all_about_accessory_designing.jpg"
+                            alt="Accessories"
+                        >
+
+                        <div class="category-content">
+
+                            <div class="category-number">
+                                03 / COLLECTION
+                            </div>
+
+                            <h2>Accessories</h2>
+
+                            <a
+                                href="accessories.html"
+                                class="shop-link"
+                                onclick="event.stopPropagation();"
+                            >
+                                Explore Collection
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bottom Message -->
+            <div class="category-bottom">
+
+                <div class="small-title">
+                    AURELLE
+                </div>
+
+                <h3>Designed for Every Expression</h3>
+
+                <p>
+                    From timeless essentials to statement accessories,
+                    explore pieces that effortlessly complement your
+                    individual style.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+                    AURELLE
+                </div>
+
+                <p class="footer-text">
+                    Modern fashion designed for confident individuals.
+                    Discover timeless styles, contemporary collections,
+                    and pieces made to express who you are.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <div class="footer-title">
+                    SHOP
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="categories.html">
+                        Categories
+                    </a>
+
+                    <a href="index.html">
+                        New Arrivals
+                    </a>
+
+                    <a href="women.html">
+                        Women's
+                    </a>
+
+                    <a href="men.html">
+                        Men's
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <div class="footer-title">
+                    HELP
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="contact_form.html">
+                        Support
+                    </a>
+
+                    <a href="account.html">
+                        My Account
+                    </a>
+
+                    <a href="cart.html">
+                        Cart
+                    </a>
+
+                    <a href="#">
+                        Returns
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-4">
+
+                <div class="footer-title">
+                    FOLLOW US
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        Pinterest
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            &copy; 2026 AURELLE. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AURELLE | Login</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+    <!-- Existing Login CSS -->
+    <link href="login.css" rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            color: #171717;
+            background: #f8f5ef;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           ANNOUNCEMENT BAR
+        ========================= */
+
+        .announcement-bar {
+            background: #171717;
+            color: #ffffff;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================
+           NAVBAR - SAME AS INDEX
+        ========================= */
+
+        .main-navbar {
+            background: #fdfbf7;
+            border-bottom: 1px solid #e5dfd5;
+            padding: 18px 0;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            letter-spacing: 7px;
+            color: #171717 !important;
+            font-weight: 500;
+        }
+
+        .brand-subtitle {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-top: -5px;
+            color: #777;
+        }
+
+        .navbar-nav .nav-link {
+            color: #222 !important;
+            font-size: 14px;
+            margin: 0 9px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #a17a3d !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: #a17a3d;
+            left: 50%;
+            bottom: 2px;
+            transform: translateX(-50%);
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .nav-icons a {
+            color: #171717;
+            margin-left: 17px;
+            font-size: 19px;
+            transition: 0.3s;
+        }
+
+        .nav-icons a:hover {
+            color: #a17a3d;
+        }
+
+        /* =========================
+           LOGIN SECTION
+        ========================= */
+
+        .login-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 70px 20px;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .login-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .login-label {
+            color: #a17a3d;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .login-heading h1 {
+            font-size: 45px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .login-heading p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .login-card {
+            background: #fdfbf7;
+            border: 1px solid #e3ddd4;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        }
+
+        .form-label {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .form-control {
+            border: 1px solid #d8d1c7;
+            border-radius: 0;
+            background: white;
+            padding: 13px 14px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            border-color: #a17a3d;
+            box-shadow: 0 0 0 0.15rem rgba(161,122,61,0.12);
+        }
+
+        .login-btn {
+            width: 100%;
+            background: #171717;
+            color: white;
+            border: none;
+            border-radius: 0;
+            padding: 14px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #a17a3d;
+            color: white;
+        }
+
+        .register-text {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .register-text a {
+            color: #171717;
+            font-weight: 500;
+            border-bottom: 1px solid #a17a3d;
+        }
+
+        /* =========================
+           FOOTER - SAME AURELLE STYLE
+        ========================= */
+
+        footer {
+            background: #171717;
+            color: #ddd;
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 22px;
+            letter-spacing: 5px;
+            margin-bottom: 8px;
+        }
+
+        .footer-text {
+            color: #888;
+            font-size: 11px;
+            margin: 0;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 991px) {
+
+            .brand-logo {
+                font-size: 25px;
+            }
+
+            .nav-icons {
+                display: none;
+            }
+
+            .login-heading h1 {
+                font-size: 38px;
+            }
+
+            .login-card {
+                padding: 30px 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         ANNOUNCEMENT BAR
+    ========================= -->
+
+    <div class="announcement-bar">
+        Free Shipping on Orders Over $75 &nbsp; | &nbsp; 30-Day Hassle-Free Returns
+    </div>
+
+
+    <!-- =========================
+         NAVBAR - INDEX STYLE
+    ========================= -->
+
+    <nav class="navbar navbar-expand-lg main-navbar">
+
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+
+                <span class="brand-logo">AURELLE</span>
+
+                <span class="brand-subtitle">
+                    FASHION / LIFESTYLE / YOU
+                </span>
+
+            </a>
+
+
+            <!-- Mobile Menu -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- Navigation -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">
+                            Shop
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">
+                            Women
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">
+                            Men
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">
+                            Collections
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact_form.html">
+                            Support
+                        </a>
+                    </li>
+
+                </ul>
+
+
+                <!-- Right Icons -->
+                <div class="nav-icons">
+
+                    <a href="#" title="Search">
+                        <i class="bi bi-search"></i>
+                    </a>
+
+                    <a href="account.html" title="Account">
+                        <i class="bi bi-person"></i>
+                    </a>
+
+                    <a href="#" title="Wishlist">
+                        <i class="bi bi-heart"></i>
+                    </a>
+
+                    <a href="cart.html" title="Cart">
+                        <i class="bi bi-bag"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         LOGIN
+    ========================= -->
+
+    <section class="login-section">
+
+        <div class="login-wrapper">
+
+            <div class="login-heading">
+
+                <div class="login-label">
+                    Welcome Back
+                </div>
+
+                <h1>Login</h1>
+
+                <p>
+                    Sign in to continue your AURELLE experience.
+                </p>
+
+            </div>
+
+
+            <div class="login-card">
+
+                <form id="loginForm" action="login.php" method="POST">
+
+                    <!-- Email -->
+                    <div class="mb-4">
+
+                        <label for="email" class="form-label">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="mb-4">
+
+                        <label for="password" class="form-label">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required>
+
+                    </div>
+
+
+                    <!-- Login Button -->
+                    <button
+                        type="submit"
+                        class="login-btn">
+
+                        LOGIN
+
+                    </button>
+
+                </form>
+
+
+                <div class="register-text">
+
+                    Don't have an account?
+
+                    <a href="register.php">
+                        Register here
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-brand">
+                AURELLE
+            </div>
+
+            <p class="footer-text">
+                &copy; 2026 AURELLE. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Existing Login JS -->
+    <script src="login.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
